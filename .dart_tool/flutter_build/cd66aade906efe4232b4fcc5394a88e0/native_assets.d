@@ -1,0 +1,1 @@
+ /Users/carbon/Desktop/programms/flutter/abroad_goods_exchange_app/.dart_tool/flutter_build/cd66aade906efe4232b4fcc5394a88e0/native_assets.yaml: 
