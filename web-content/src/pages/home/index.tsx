@@ -227,11 +227,25 @@ const Home = () => {
       </Swiper>
 
       <div>
-        <div style={{ color: "black" }}>精选商品</div>
+        {/* <div
+          style={{
+            color: "pink",
+            fontWeight: 900,
+            fontSize: "1rem",
+            marginTop: "1rem",
+          }}
+        >
+          商品列表
+        </div> */}
         <Swiper
           modules={[Navigation, Pagination]}
           navigation={{ enabled: false }}
           pagination={{ clickable: true }}
+          style={{
+            background: "#fff5",
+            margin: "0.5rem",
+            borderRadius: "1rem",
+          }}
           spaceBetween={30}
           slidesPerView={1}
         >
@@ -289,9 +303,6 @@ const Home = () => {
         </Swiper>
       </div>
 
-      <div style={{ color: "pink", fontWeight: 900, background: "#fff" }}>
-        商品列表
-      </div>
       <Waterfall
         style={{
           backgroundColor: "#fff",
