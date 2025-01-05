@@ -1,6 +1,11 @@
-# abroad_goods_exchange_app
+# Neco Shop
 
-A new Flutter project.
+A new `Flutter`(Webview) + `React` project.
+
+
+![image](https://github.com/user-attachments/assets/bf7f060f-de3c-412d-bdd3-892797b6d4a6)
+
+
 
 ## Getting Started
 
