@@ -76,7 +76,6 @@ final _router = GoRouter(
     ),
   ],
 );
-
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -88,7 +87,20 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.pink),
         useMaterial3: true,
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Colors.white,
+          elevation: 0,
+        ),
       ),
+      // Set white background for status bar
+      builder: (context, child) {
+        return Container(
+          color: Colors.white,
+          child: SafeArea(
+            child: child!,
+          ),
+        );
+      },
     );
   }
 }

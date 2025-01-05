@@ -2,7 +2,7 @@ import { useSafeAreaHeight } from "../../common/utils/jsb";
 import { Waterfall, WaterfallItem } from "../../common/components/waterfall";
 import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper/modules";
+import { Pagination } from "swiper/modules";
 // import Swiper and modules styles
 import "swiper/css";
 import "swiper/css/navigation";
@@ -55,6 +55,7 @@ const Home = () => {
   });
 
   const loadMore = () => {
+    console.log("什么鬼");
     const newData = Array.from({ length: 20 }, (_, i) => ({
       name: `测试商品1 ${data.热门.length + data.最新.length + i + 1}`,
       image:
@@ -63,6 +64,7 @@ const Home = () => {
       price: Math.floor(Math.random() * 50) + 50,
       likes: Math.floor(Math.random() * 100),
     }));
+
     setData({
       热门: [...data.热门, ...newData.filter((_, i) => i % 2 === 0)],
       最新: [...data.最新, ...newData.filter((_, i) => i % 2 !== 0)],
@@ -195,13 +197,13 @@ const Home = () => {
     <div
       style={{
         width: "100%",
-        paddingTop: `${safeAreaHeight}px`,
-        height: "100%",
-        // overflow: "auto",
+        // paddingTop: `${safeAreaHeight}px`,
+        height: "100vh",
+        overflow: "auto",
       }}
     >
       <Swiper
-        modules={[Navigation, Pagination]}
+        modules={[Pagination]}
         navigation={{ enabled: false }}
         pagination={{ clickable: true }}
         spaceBetween={50}
@@ -238,7 +240,9 @@ const Home = () => {
           商品列表
         </div> */}
         <Swiper
-          modules={[Navigation, Pagination]}
+          allowSlideNext={false}
+          allowSlidePrev={false}
+          modules={[Pagination]}
           navigation={{ enabled: false }}
           pagination={{ clickable: true }}
           style={{
@@ -306,8 +310,9 @@ const Home = () => {
       <Waterfall
         style={{
           backgroundColor: "#fff",
-          padding: "0 0.5rem",
-          // marginTop: safeAreaHeight,
+          padding: "0.2rem 0.5rem 0",
+          borderRadius: "1rem",
+          marginBottom: "2rem",
         }}
         dataSource={data as unknown as Record<string, WaterfallItem[]>}
         loadMore={loadMore}
@@ -315,8 +320,8 @@ const Home = () => {
         sticky={{
           enable: true,
           // 45px 是 45px 的 header 高度
-          top: `${safeAreaHeight + 45}px`,
-          // top: `${safeAreaHeight}px`,
+          // top: `${safeAreaHeight + 45}px`,
+          top: `${safeAreaHeight}px`,
         }}
         renderTab={renderTab}
       />
